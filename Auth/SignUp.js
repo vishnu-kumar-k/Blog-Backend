@@ -24,8 +24,10 @@ async function SignUp(req,res)
                     res.json(error)
                 else
                 {
+                
                     var p=jwt.sign({email:email},process.env.jwt_token,{expiresIn:"1d"})
-                    res.cookie("jwt",p,{httpOnly:true});
+                    res.cookie("jwt",p,{httpOnly:true}
+                    );
                     res.json({
                         status:true,
                         msg:"Registered Sucessfully"

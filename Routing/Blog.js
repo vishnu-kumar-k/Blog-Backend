@@ -1,12 +1,21 @@
-exports.Blog=async(req,res)=>{
-    try{
-    console.log(req.headers.cookie );
-     res.send("Success");
-    }catch(err)
+const jwt = require("jsonwebtoken");
+  require("dotenv").config();
+
+exports.Blog = async (req, res) => {
+  try{
+    var t=jwt.verify(req.cookies.jwt,process.env.jwt_token);
+    console.log(t)
+    if(t)
     {
-        console.log("error");
-        res.status(400).send("internal error");
+      res.send("Running")
     }
-
-
-}
+    else
+    {
+      res.send(">>>>>>>>")
+    }
+  }
+  catch(err)
+  {
+    res.json(err);
+  }
+};

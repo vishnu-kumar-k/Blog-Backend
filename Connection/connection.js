@@ -1,17 +1,17 @@
-const mysql=require('mysql')
+const mysql = require("mysql");
 
-const con=mysql.createConnection({
-    host:"localhost",
-    user:"root",
-    password:"password",
-    database:"blog"
-})
+const con = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "password",
+  database: "blog",
+});
 
-con.connect((err)=>
+con.connect((err) => 
+
 {
-    if(err)
-        throw err
-    console.log("Connnected to Database")    
-})
+  if (err) throw err;
+  console.log("Connnected to Database");
+});
 
-module.exports=con;
+module.exports = con;
